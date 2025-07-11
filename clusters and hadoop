@@ -1,0 +1,4 @@
+After creating cluster:
+
+check the working directory:
+> pwd  # this shows the current working directory
