@@ -2,3 +2,11 @@ After creating cluster:
 
 check the working directory:
 > pwd  # this shows the current working directory
+
+Creating an new directory:
+> sudo mkdir -p /home/bidhan # this will create a new directory inside the home directory
+
+getting into the directory:
+> cd /home/bidhan # this will take us inside the bidhan directory
+
+
