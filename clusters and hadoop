@@ -14,6 +14,16 @@ importing files to the cluster:
 
 > curl -O https://example.com/large_dataset.zip
 
+for password protected locations:
+wget --user=username --password=password --recursive --no-parent -P /home/bidhan_pokhrel_dubai_gmail_com/folder https://example.com/data/
+
+
+with zip:
+wget https://example.com/path/to/archive.zip -O - | unzip -d /home/bidhan_pokhrel_dubai_gmail_com/
+
+curl -L https://example.com/path/to/archive.zip | unzip -d /home/bidhan_pokhrel_dubai_gmail_com/
+
+
 For importing the dataset from google bucket:
 > gsutil ls gs://bidhan/   # this will list all the files inside the bucket
 > gsutil cp gs://bidhan/mapper.py /home/bidhan_pokhrel_dubai_gmail_com/
@@ -21,7 +31,8 @@ For importing the dataset from google bucket:
 
 
 UPLOADING THE CLUSTER FILE TO GOOGLE BUCKET:
-gsutil -m cp onedrive.aspx gs://bidhan/
+
+gsutil cp health_dataset.csv gs://bidhan
 
 checking the file type:
 > file <filename>
@@ -33,7 +44,14 @@ checking the file permissions of the file:
 what if zip file?
 > sudo apt-get update
 > sudo apt-get install unzip -y
-> unzip <full file path with file name and extension>
+> unzip health_dataset.zip # to unzip the file.
+> zip health_dataset.zip health_dataset.csv # to zip the existing files.
+
+Important Options:
+-r : Recursively include directories
+-9 : Maximum compression
+-q : Quiet mode (suppresses output)
+-e : Encrypt with password
 
 
 
