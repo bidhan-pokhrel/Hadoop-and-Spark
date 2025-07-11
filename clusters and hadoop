@@ -12,6 +12,15 @@ getting into the directory:
 importing files to the cluster:
 wget <url>
 
+
+
+checking the file type:
+> file <filename>
+
+checking the file permissions of the file:
+> ls -l <filename>
+
+
 what if zip file?
 > sudo apt-get update
 > sudo apt-get install unzip -y
