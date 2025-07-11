@@ -9,4 +9,13 @@ Creating an new directory:
 getting into the directory:
 > cd /home/bidhan # this will take us inside the bidhan directory
 
+importing files to the cluster:
+wget <url>
+
+what if zip file?
+> sudo apt-get update
+> sudo apt-get install unzip -y
+> unzip <full file path with file name and extension>
+
+
 
