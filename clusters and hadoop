@@ -15,13 +15,13 @@ importing files to the cluster:
 > curl -O https://example.com/large_dataset.zip
 
 For importing the dataset from google bucket:
-> gsutil ls gs://bdnlargedata/   # this will list all the files inside the bucket
-> gsutil cp gs://bdnlargedata/mapper.py /home/bidhan_pokhrel_dubai_gmail_com/
+> gsutil ls gs://bidhan/   # this will list all the files inside the bucket
+> gsutil cp gs://bidhan/mapper.py /home/bidhan_pokhrel_dubai_gmail_com/
 
 
 
 UPLOADING THE CLUSTER FILE TO GOOGLE BUCKET:
-gsutil -m cp onedrive.aspx gs://bdnlargedata/
+gsutil -m cp onedrive.aspx gs://bidhan/
 
 checking the file type:
 > file <filename>
