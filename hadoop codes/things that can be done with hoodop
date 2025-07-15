@@ -6,6 +6,9 @@ hadoop fs -stat "%o" /home/health_data.csv
 !!!!!!!!!View Detailed Block Distribution!!!!!!!!!!!!
 hadoop fsck /home/health_data.csv -files -blocks -locations
 
+!!!!!!!!!!!!!!!For the most detailed file inspection!!!!!!!!!!!!!!!!
+hadoop fsck /home/health_data.csv -files -blocks -locations -racks
+
 
  !!!!!!!!!!!Count Number of Blocks!!!!!!!!!!!
 hadoop fs -ls /home/health_data.csv
@@ -17,3 +20,20 @@ hadoop fs -D dfs.blocksize=256M -put health_data.csv /folder1/
 
 !!!!!!!!!View your cluster's default block size!!!!!!!!!!!!
 hdfs getconf -confKey dfs.blocksize
+
+
+!!!!!!!!!!!Check disk space!!!!!!!!!!
+hadoop fs -df -h /
+
+
+!!!!!!!!!!!!# Check DataNode status!!!!!!!!!!!!!!
+hdfs dfsadmin -report
+
+# Rebalance data across nodes
+hdfs balancer -threshold 10
+
+# Enter/Exit Safe Mode
+hdfs dfsadmin -safemode enter
+hdfs dfsadmin -safemode leave
+
+
