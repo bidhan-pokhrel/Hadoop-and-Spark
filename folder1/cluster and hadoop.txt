@@ -12,7 +12,6 @@ wget -O /home/bidhan_pokhrel_dubai_gmail_com/health.zip https://mcqhost.com/bidh
 curl -L -o bidhandata101.zip https://mcqhost.com/bidhandata101 
 #using Curl 
 
-
 !!!!FILE DETAILS!!!
 file bidhandata101   
 # to check the file name extensions
@@ -22,4 +21,8 @@ ls -lh bidhandata101.zip
 
 ls -l bidhandata101.zip
 
-!!!! 
+!!!! Check Top rows of dataset !!!!
+head -n 10 /home/bidhan_pokhrel_dubai_gmail_com/health_dataset.csv
+or:
+head -n 10 health_dataset.scv
+
