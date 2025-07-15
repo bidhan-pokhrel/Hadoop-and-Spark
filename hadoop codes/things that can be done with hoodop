@@ -10,3 +10,10 @@ hadoop fsck /home/health_data.csv -files -blocks -locations
  !!!!!!!!!!!Count Number of Blocks!!!!!!!!!!!
 hadoop fs -ls /home/health_data.csv
 The second column shows the block count (e.g., 2 means divided into 2 blocks).
+
+!!!!!!!Change the Block size before uploading!!!!!!!
+hadoop fs -D dfs.blocksize=256M -put health_data.csv /folder1/
+
+
+!!!!!!!!!View your cluster's default block size!!!!!!!!!!!!
+hdfs getconf -confKey dfs.blocksize
