@@ -1,0 +1,24 @@
+!!!!IMPORTING FILES!!!!
+
+wget https://mcqhost.com/bidhandata101
+# to download file into default location
+
+wget /home/bidhan_pokhrel_dubai_gmail_com/ https://mcqhost.com/bidhandata101
+# for importing file to the desired location with defaut filename
+
+wget -O /home/bidhan_pokhrel_dubai_gmail_com/health.zip https://mcqhost.com/bidhandata101
+# for saving file as a desired filename
+
+curl -L -o bidhandata101.zip https://mcqhost.com/bidhandata101
+#using Curl
+
+
+!!!!FILE DETAILS!!!
+file bidhandata101   # to check the file name extensions
+
+ls -lh bidhandata101.zip
+#see the file name/location and size in KB/MB/GB
+
+ls -l bidhandata101.zip
+
+
