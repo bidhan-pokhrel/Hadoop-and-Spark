@@ -37,3 +37,13 @@ hdfs dfsadmin -safemode enter
 hdfs dfsadmin -safemode leave
 
 
+!!!!!!! Copy files from hadoop to bucket!!!!!!!!!!!!!!
+hadoop distcp /home gs://bidhan/
+hadoop distcp -update /home gs://bidhan/
+
+
+hadoop distcp -Dfs.gs.impl=com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem /home gs://bidhan/
+
+
+
+
