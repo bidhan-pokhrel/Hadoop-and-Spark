@@ -1,0 +1,5 @@
+# Launch PySpark with YARN as master
+pyspark --master yarn
+
+# If that fails, try with more memory:
+pyspark --master yarn --driver-memory 2g --executor-memory 2g
