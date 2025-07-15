@@ -21,8 +21,39 @@ ls -lh bidhandata101.zip
 
 ls -l bidhandata101.zip
 
+
+!!!!unzip !!!!
+unzip bidhandata101.zip
+
 !!!! Check Top rows of dataset !!!!
 head -n 10 /home/bidhan_pokhrel_dubai_gmail_com/health_dataset.csv
 or:
 head -n 10 health_dataset.scv
 
+
+!!!! check mapper reducer on locally!!!!
+cat health_data.csv | python mapper.py | sort | python reducer.py
+
+!!!! working on hadoop!!!!
+!!!! creating the directory!!!
+hadoop fs -mkdir /home
+hadoop fs -mkdir /folder1
+
+!!!! removing the directory !!!!
+hadoop fs -rm -r /home
+#this will remove entire directory along with dataset
+
+!!!! uploading file to hadoop system!!!
+
+hadoop fs -put health_data.csv /folder1
+# this will upload health_data.csv /folder1
+
+hadoop fs -ls /folder1
+# this will show the files inside the folder1
+
+!!!! running mapreduce in Hadoop!!!!
+
+hadoop jar /usr/lib/hadoop/hadoop-streaming.jar -file /home/bidhan_pokhrel_dubai_gmail_com/mapper.py -mapper "python mapper.py" -file /home/bidhan_pokhrel_dubai_gmail_com/reducer.py -reducer "python reducer.py" -input /folder1/health_data.csv -output /output
+
+#############################################################
+hadoop jar /usr/lib/hadoop/hadoop-streaming.jar  -D mapreduce.job.reduces=1  -file map.py    -mapper "python map.py"  -file reducer.py   -reducer "python reducer.py"     -input ___(ur input path)___  -output ___________________(ur output path)
