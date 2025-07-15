@@ -3,6 +3,7 @@
 wget https://mcqhost.com/bidhandata101
 # to download file into default location
 
+
 wget /home/bidhan_pokhrel_dubai_gmail_com/ https://mcqhost.com/bidhandata101
 # for importing file to the desired location with defaut filename
 
@@ -12,6 +13,7 @@ wget -O /home/bidhan_pokhrel_dubai_gmail_com/health.zip https://mcqhost.com/bidh
 curl -L -o bidhandata101.zip https://mcqhost.com/bidhandata101 
 #using Curl 
 
+###########################################################################
 !!!!FILE DETAILS!!!
 file bidhandata101   
 # to check the file name extensions
@@ -21,28 +23,30 @@ ls -lh bidhandata101.zip
 
 ls -l bidhandata101.zip
 
-
+#####################################################################
 !!!!unzip !!!!
 unzip bidhandata101.zip
 
+#################################################################
 !!!! Check Top rows of dataset !!!!
 head -n 10 /home/bidhan_pokhrel_dubai_gmail_com/health_dataset.csv
 or:
 head -n 10 health_dataset.scv
 
-
+#############################################################
 !!!! check mapper reducer on locally!!!!
 cat health_data.csv | python mapper.py | sort | python reducer.py
 
 !!!! working on hadoop!!!!
+##########################################################
 !!!! creating the directory!!!
 hadoop fs -mkdir /home
 hadoop fs -mkdir /folder1
-
+########################################################
 !!!! removing the directory !!!!
 hadoop fs -rm -r /home
 #this will remove entire directory along with dataset
-
+#########################################################
 !!!! uploading file to hadoop system!!!
 
 hadoop fs -put health_data.csv /folder1
@@ -51,13 +55,23 @@ hadoop fs -put health_data.csv /folder1
 hadoop fs -ls /folder1
 # this will show the files inside the folder1
 
+###########################################################
 !!!! running mapreduce in Hadoop!!!!
 
 hadoop jar /usr/lib/hadoop/hadoop-streaming.jar -file mapper.py -mapper "python3 mapper.py" -file reducer.py -reducer "python3 reducer.py" -input /home/health_data.csv -output /home
 
-#############################################################
+Generic Code
 hadoop jar /usr/lib/hadoop/hadoop-streaming.jar  -D mapreduce.job.reduces=1  -file map.py    -mapper "python map.py"  -file reducer.py   -reducer "python reducer.py"     -input ___(ur input path)___  -output ___________________(ur output path)
 
-
+##############################################################
 !!!! Printing output!!!!
 hadoop fs -cat /home/output/part*
+
+
+!!!! Copy to and From Google bucket !!!!
+gsutil cp -r /path/to/your/local/folder gs://bidhan/     #for entire folder from cluster to bucket
+
+gsutil cp /path/to/your/local/file.csv gs://bidhan/       # for single file from cluster to bucket
+
+gsutil cp -r gs://bidhan/folder   /path/to/your/local/     #for entire folder from bucket to cluster
+gsutil cp  gs://bidhan/file.csv    /path/to/your/local/     # for single file from bucket to cluster
