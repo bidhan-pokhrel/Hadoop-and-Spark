@@ -12,6 +12,9 @@ wget -O /home/bidhan_pokhrel_dubai_gmail_com/health.zip https://mcqhost.com/bidh
 
 curl -L -o bidhandata101.zip https://mcqhost.com/bidhandata101 
 #using Curl 
+!!!!!!!!!!!!!!from bucket!!!!!!!!
+gsutil cp <bucket URL>
+#for importing data from bucket.
 
 ###########################################################################
 !!!!FILE DETAILS!!!
