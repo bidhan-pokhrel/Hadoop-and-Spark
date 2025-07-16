@@ -73,6 +73,52 @@ curl or wget - Download files or make HTTP requests.
       curl -O http://example.com/file.txt
       wget http://example.com/file.txt
 
+8. Searching and Filtering
+grep - Search for text in files.
+      grep "pattern" file.txt
+      grep -r "pattern" /path/to/dir  # Recursive search
+find - Search for files or directories.
+      find /path -name "file.txt"
+awk or sed - Process text streams.
+      awk '{print $1}' file.txt  # Print first column
+      sed 's/old/new/g' file.txt  # Replace text
+9. Process Management
+kill - Terminate a process by ID.
+      kill 1234  # Replace 1234 with process ID
+      kill -9 1234  # Force kill
+jobs - List background jobs.
+      jobs
+bg and fg - Manage background and foreground jobs.
+      bg  # Resume a job in the background
+      fg  # Bring a job to the foreground
+10. Environment and Variables
+env - List environment variables
+      env
+export - Set environment variables.
+      export MY_VAR=value
+echo - Display variables or text.
+      echo $PATH
+
+11. Package Management (if sudo access is available)
+apt-get - Install or manage packages (Debian/Ubuntu-based Dataproc images).
+            sudo apt-get update
+            sudo apt-get install package_name
+12. Miscellaneous
+whoami - Display the current user.
+     whoami
+uptime - Show system uptime and load.
+      uptime
+history - View command history.
+      history
+man - Access manual pages for commands.
+      man ls
+
+
+
+
+
+
+
 
 
 
