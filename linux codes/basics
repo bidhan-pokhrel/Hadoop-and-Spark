@@ -1,0 +1,84 @@
+1. Navigating the File System:
+
+pwd - Print the current working directory.
+      pwd
+ls - List files and directories
+      ls -l  # Detailed listing
+      ls -a  # Show hidden files
+cd - Change directory.
+      cd /path/to/directory
+      cd ..  # Move up one directory
+      cd ~   # Go to home directory
+
+2. File and Directory Management
+
+mkdir - Create a new directory.
+      mkdir my_folder
+rm - Remove files or directories.
+      rm file.txt        # Delete a file
+      rm -r my_folder    # Delete a directory and its contents
+cp - Copy files or directories.
+      cp source.txt destination.txt
+      cp -r source_dir destination_dir
+mv - Move or rename files or directories.
+      mv oldname.txt newname.txt
+      mv file.txt /path/to/destination/
+touch - Create an empty file or update a file's timestamp.
+      touch newfile.txt
+
+3. Viewing and Editing Files
+cat - Display file contents.
+      cat file.txt
+
+less - View file contents interactively (use q to quit)
+      less file.txt
+      
+nano or vi - Edit files.
+      nano file.txt  # Simple editor
+      vi file.txt    # More advanced editor (use :wq to save and exit)
+
+head - View the first few lines of a file.
+      head -n 10 file.txt  # Show first 10 lines
+      
+tail - View the last few lines of a file.
+      tail -n 10 file.txt  # Show last 10 lines
+
+4. File Permissions
+chmod - Change file permissions.
+      chmod 755 script.sh  # Executable for all
+      chmod 644 file.txt   # Read/write for owner, read for others
+
+chown - Change file ownership
+      chown user:group file.txt
+      
+5. System Monitoring
+top or htop - Monitor system processes in real-time.
+      top
+      htop  # More user-friendly, if installed
+ps - List running processes.
+      ps aux  # Show all processes
+df - Check disk usage.
+      df -h  # Human-readable format
+du - Check directory size.
+      du -sh /path/to/directory
+free - Check memory usage.
+      free -m  # Show in megabytes
+
+6. Networking
+ping - Check connectivity to a host.
+      ping google.com
+netstat - Display network connections (if installed).
+      netstat -tuln
+curl or wget - Download files or make HTTP requests.    
+      curl -O http://example.com/file.txt
+      wget http://example.com/file.txt
+
+
+
+
+
+
+
+
+
+      
