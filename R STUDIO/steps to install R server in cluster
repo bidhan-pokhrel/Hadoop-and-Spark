@@ -1,0 +1,60 @@
+Step 1:Prepare an Initialization Script:
+Create a shell script to install RStudio Server and its dependencies.
+(codes from install_rstudio_server.sh)
+
+Step 2:
+Upload the script to a GCS bucket:
+gsutil cp install_rstudio_server.sh gs://your-bucket-name/scripts/
+
+step 3:
+setup firewall rule:
+
+gcloud compute firewall-rules create allow-rstudio \
+  --allow tcp:8787 \
+  --target-tags=dataproc \
+  --description="Allow RStudio Server access on port 8787"
+##################################
+Alternatively, in the Google Cloud Console:
+Go to VPC Network > Firewall.
+Click Create Firewall Rule.
+Set:
+Name: allow-rstudio
+Targets: All instances in the network or specify a tag (e.g., dataproc)
+Source IP ranges: 0.0.0.0/0 (or restrict to your IP for security)
+Protocols and ports: tcp:8787
+Click Create.
+#####################################
+
+3. Access the Cluster via SSH (Optional for Verification)
+To verify the installation or troubleshoot, SSH into the master node.
+
+SSH Command:
+
+>> gcloud compute ssh --zone your-zone your-cluster-name-m --project your-project-id
+Verify RStudio Server: Check if RStudio Server is running:
+
+
+>> sudo systemctl status rstudio-server
+
+Ensure it’s active. If not, start it:
+
+>> sudo systemctl start rstudio-server
+
+Verify R Installation:
+bash
+>> R --version
+
+4. Access RStudio Server via Web Browser
+Using Component Gateway (Recommended):
+Go to the Google Cloud Console > Dataproc > Clusters.
+Select your cluster (your-cluster-name).
+Go to the Web Interfaces tab.
+Click the RStudio Server link (enabled by --enable-component-gateway).
+Log in with the username (rstudio) and password set in the initialization script.
+Using Public IP (Alternative, less secure):
+Find the master node’s external IP in the Google Cloud Console under Compute Engine > VM Instances or via:
+
+>> gcloud compute instances describe your-cluster-name-m --zone your-zone --project your-project-id --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
+
+Open a browser and navigate to http://<master-node-external-ip>:8787.
+Log in with the username (rstudio) and password.
