@@ -1,0 +1,15 @@
+CST4070_January_Intake 25 Batch All MongoDB commands in this post:
+ 
+Step 1- add mongodb key:
+
+curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-6.0.gpg
+ 
+Step 2- Add the MongoDB repository details to your system:
+echo "deb [signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
+Step 3: Final steps 
+ sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+Step 4: Check and start Mongodb
+sudo service mongod start
