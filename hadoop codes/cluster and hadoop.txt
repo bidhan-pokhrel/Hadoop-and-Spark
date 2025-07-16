@@ -42,11 +42,11 @@ cat health_data.csv | python mapper.py | sort | python reducer.py
 
 !!!! working on hadoop!!!!
 ##########################################################
-!!!! creating the directory!!!
+!!!! creating the directory in hadoop!!!
 hadoop fs -mkdir /home
 hadoop fs -mkdir /folder1
 ########################################################
-!!!! removing the directory !!!!
+!!!! removing the directory from hadoop!!!!
 hadoop fs -rm -r /home
 #this will remove entire directory along with dataset
 #########################################################
