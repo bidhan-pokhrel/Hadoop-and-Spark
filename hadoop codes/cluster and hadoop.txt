@@ -78,3 +78,17 @@ gsutil cp /path/to/your/local/file.csv gs://bidhan/       # for single file from
 
 gsutil cp -r gs://bidhan/folder   /path/to/your/local/     #for entire folder from bucket to cluster
 gsutil cp  gs://bidhan/file.csv    /path/to/your/local/     # for single file from bucket to cluster
+###################################################################################
+linux codes: Working with Hadoop/Spark (Dataproc-Specific)
+
+          hdfs dfs - Interact with Hadoop Distributed File System (HDFS).
+          hdfs dfs -ls /  # List files in HDFS root
+          hdfs dfs -put localfile.txt /hdfs/path/  # Upload file to HDFS
+          hdfs dfs -get /hdfs/path/file.txt ./     # Download file from HDFS
+          hdfs dfs -rm /hdfs/path/file.txt         # Delete file from HDFS
+yarn - Manage YARN applications.
+          yarn application -list  # List running YARN applications
+          yarn logs -applicationId <app_id>  # View logs for a specific application
+spark-submit - Submit Spark jobs.
+          spark-submit --class MyClass myapp.jar  # Run a Spark application
+
