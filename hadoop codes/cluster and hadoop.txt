@@ -70,7 +70,7 @@ hadoop jar /usr/lib/hadoop/hadoop-streaming.jar  -D mapreduce.job.reduces=1  -fi
 !!!! Printing output!!!!
 hadoop fs -cat /home/output/part*
 
-
+#######################################################################
 !!!! Copy to and From Google bucket !!!!
 gsutil cp -r /path/to/your/local/folder gs://bidhan/     #for entire folder from cluster to bucket
 
