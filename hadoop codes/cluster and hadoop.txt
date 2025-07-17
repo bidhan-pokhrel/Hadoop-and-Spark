@@ -101,3 +101,8 @@ yarn - Manage YARN applications.
 spark-submit - Submit Spark jobs.
           spark-submit --class MyClass myapp.jar  # Run a Spark application
 
+
+
+To change the replication factor of /home/health_data.csv to 3:
+hadoop fs -setrep -w 3 /home/health_data.csv
+
