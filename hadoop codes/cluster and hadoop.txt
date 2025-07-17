@@ -61,7 +61,7 @@ hadoop fs -ls /folder1
 ###########################################################
 !!!! running mapreduce in Hadoop!!!!
 
-hadoop jar /usr/lib/hadoop/hadoop-streaming.jar -file mapper.py -mapper "python3 mapper.py" -file reducer.py -reducer "python3 reducer.py" -input /home/health_data.csv -output /home
+hadoop jar /usr/lib/hadoop/hadoop-streaming.jar -D mapreduce.job.reduces=1 -file mapper.py -mapper "python3 mapper.py" -file reducer.py -reducer "python3 reducer.py" -input /home/health_data.csv -output /home
 
 Generic Code
 hadoop jar /usr/lib/hadoop/hadoop-streaming.jar  -D mapreduce.job.reduces=1  -file map.py    -mapper "python map.py"  -file reducer.py   -reducer "python reducer.py"     -input ___(ur input path)___  -output ___________________(ur output path)
