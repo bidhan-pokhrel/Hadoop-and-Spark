@@ -52,11 +52,20 @@ hadoop fs -rm -r /home
 #########################################################
 !!!! uploading file to hadoop system!!!
 
-hadoop fs -put health_data.csv /folder1
-# this will upload health_data.csv /folder1
+hadoop fs -put health_data.csv /home
+# this will upload health_data.csv /home
 
-hadoop fs -ls /folder1
+!!!!!!!Change the Block size before uploading!!!!!!!
+hadoop fs -D dfs.blocksize=256M -put health_data.csv /folder1/
+
+hadoop fs -ls /home
 # this will show the files inside the folder1
+
+!!!!!Check File Block Information!!!!!
+hadoop fs -stat "%o" /home/health_data.csv
+
+!!!!!!!!!!!!!!!For the most detailed file inspection!!!!!!!!!!!!!!!!
+hadoop fsck /home/health_data.csv -files -blocks -locations -racks
 
 ###########################################################
 !!!! running mapreduce in Hadoop!!!!
